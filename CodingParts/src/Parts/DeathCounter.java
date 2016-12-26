@@ -65,13 +65,17 @@ public class DeathCounter extends JavaPlugin implements Listener{
 	@EventHandler
 	public static void DeathEvent(PlayerDeathEvent e){
 		Player p = e.getEntity().getKiller();
-		int last = 0;
-		if(Top.containsKey(p.getUniqueId())){
-			last = Top.get(p.getUniqueId());
-			Top.remove(p.getUniqueId());
+		if(p != null){
+			int last = 0;
+			if(Top.containsKey(p.getUniqueId())){
+				last = Top.get(p.getUniqueId());
+				Top.remove(p.getUniqueId());
+			}
+			Top.put(p.getUniqueId(), last + 1);
+			p.sendMessage("Je hebt een extra kill! wouw!");
+		}else{
+			e.getEntity().sendMessage("Hmm, Beetje slecht dat je niet bij een speler vermoord bent.");
 		}
-		Top.put(p.getUniqueId(), last + 1);
-		p.sendMessage("Je hebt een extra kill! wouw!");
 	}
 	
 }
