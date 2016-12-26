@@ -35,20 +35,21 @@ public class DeathCounter extends JavaPlugin implements Listener{
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(command.getLabel().equalsIgnoreCase("KillTop")){
-			Object[] a = Top.entrySet().toArray();
-			Arrays.sort(a, new Comparator() {
-				public int compare(Object o1, Object o2) {
-			        return ((Map.Entry<String, Integer>) o2).getValue()
-			                   .compareTo(((Map.Entry<String, Integer>) o1).getValue());
-			    }
-			});
-			int Counting = 1;
-			for (Object e : a) {
-			    sender.sendMessage(Counting + ". " + ((Map.Entry<String, Integer>) e).getKey() + " : " + ((Map.Entry<String, Integer>) e).getValue());
-			    Counting++;
-			}
-			
+		if(command.getLabel().toLowerCase().equalsIgnoreCase("killtop")){
+			try{
+				Object[] a = Top.entrySet().toArray();
+				Arrays.sort(a, new Comparator() {
+					public int compare(Object o1, Object o2) {
+				        return ((Map.Entry<String, Integer>) o2).getValue()
+				                   .compareTo(((Map.Entry<String, Integer>) o1).getValue());
+				    }
+				});
+				int Counting = 1;
+				for (Object e : a) {
+				    sender.sendMessage(Counting + ". " + ((Map.Entry<String, Integer>) e).getKey() + " : " + ((Map.Entry<String, Integer>) e).getValue());
+				    Counting++;
+				}
+			}catch(Exception e){ sender.sendMessage("Er is iets fout gegaan tijdens deze command!"); e.printStackTrace(); }
 			
 		}
 		return true;
@@ -70,6 +71,7 @@ public class DeathCounter extends JavaPlugin implements Listener{
 			Top.remove(p.getUniqueId());
 		}
 		Top.put(p.getUniqueId(), last + 1);
+		p.sendMessage("Je hebt een extra kill! wouw!");
 	}
 	
 }
