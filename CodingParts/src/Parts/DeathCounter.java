@@ -30,6 +30,9 @@ public class DeathCounter extends JavaPlugin implements Listener{
 		try{
 			Top = (HashMap<UUID, Integer>) o;
 		}catch(Exception e){ e.printStackTrace(); }
+		if(Top == null){
+			Top = new HashMap<UUID, Integer>();
+		}
 	}
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
