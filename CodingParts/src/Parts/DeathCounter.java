@@ -67,6 +67,7 @@ public class DeathCounter extends JavaPlugin implements Listener{
 	
 	@EventHandler
 	public static void DeathEvent(PlayerDeathEvent e){
+		if(e.getEntity() == null){ return; }
 		Player p = e.getEntity().getKiller();
 		if(p != null){
 			int last = 0;
