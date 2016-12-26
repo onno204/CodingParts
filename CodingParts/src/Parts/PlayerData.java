@@ -15,6 +15,14 @@ public class PlayerData implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void QuitEventHandler(PlayerJoinEvent e) {
+		/*
+		 * Add this in your main.java
+		 * 
+		 if(!this.getDataFolder().exists()){ this.getDataFolder().mkdir(); System.out.println("Datafolder Created."); 
+		  }else{
+		   System.out.println("Datafolder Already exited."); 
+		  }
+		 */
 		//Replace 'IdontHaveALife' with your plugin name
 		File file = new File(Bukkit.getPluginManager().getPlugin("IdontHaveALife").getDataFolder().getPath(), e.getPlayer().getName() + ".yml");
 
