@@ -1,0 +1,12 @@
+name: AIDS
+main: MrWouter.main
+version: 1.0
+prefix: AIDS
+description: >
+             AIDS by onno204.
+commands:
+  AIDS: 
+    aliases: [BLO]
+    description: AIDS command by onno204.
+    usage: Just Type It :D
+  

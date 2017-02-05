@@ -48,8 +48,7 @@ public class DeathCounter extends JavaPlugin implements Listener{
 				Object[] a = Top.entrySet().toArray();
 				Arrays.sort(a, new Comparator() {
 					public int compare(Object o1, Object o2) {
-				        return ((Map.Entry<UUID, Integer>) o2).getValue()
-				                   .compareTo(((Map.Entry<UUID, Integer>) o1).getValue());
+				        return ((Map.Entry<UUID, Integer>) o2).getValue() .compareTo(((Map.Entry<UUID, Integer>) o1).getValue());
 				    }
 				});
 				int Counting = 1;
