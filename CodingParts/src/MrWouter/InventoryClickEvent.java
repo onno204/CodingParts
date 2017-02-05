@@ -26,5 +26,24 @@ public class InventoryClickEvent implements Listener{
 		p.performCommand("kleur " + TP.getName() + " " + kleur.substring(1, 2));
 		e.setCancelled(true);
 	}
+
+	@EventHandler
+	public void LevelClickEvent(org.bukkit.event.inventory.InventoryClickEvent e){
+		if(!e.getInventory().getTitle().contains("level beheer scherm")){ return; }
+		e.setCancelled(true);
+		if(e.getCurrentItem() == null){ return; }
+		if(e.getCurrentItem().getItemMeta() == null){ return; }
+		if(!(e.getWhoClicked() instanceof Player)){ e.setCancelled(true); e.getWhoClicked().sendMessage("§4Error§c, Je bent geen speler."); return; }
+		String TPlayerName = e.getInventory().getTitle().replace(" level beheer scherm.", "").replace("§a", "");
+		Player TP = Bukkit.getPlayer(TPlayerName);
+		ItemStack item = e.getCurrentItem();
+		Player p = (Player) e.getWhoClicked();
+		if(!TP.isOnline()){ p.sendMessage("§4Error§c, de speler " + TP.getName() + " is niet online");return; }
+		
+		String Level = item.getItemMeta().getDisplayName().replace("§aLevel:  ", "");
+		p.sendMessage("§ahet level van §2" + TP.getName() + "§a is aangepast naar: " + Level );
+		p.performCommand("setlevel " + TP.getName() + " " + Level);
+		e.setCancelled(true);
+	}
 	
 }

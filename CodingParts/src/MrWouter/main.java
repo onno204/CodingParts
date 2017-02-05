@@ -40,8 +40,8 @@ public class main extends JavaPlugin{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		Player p = (Player) sender;
-		new Inventories(p);
-		p.openInventory(Inventories.GetInv());
+		new LevelSelector(p);
+		p.openInventory(LevelSelector.GetInv());
 		p.sendMessage("Uw inventory is geöpent");
 		return true;
 	}
