@@ -14,7 +14,7 @@ public class LevelSelector {
 	
 	public static Inventory LevelSelector;
 	public LevelSelector(Player p){
-		LevelSelector = Bukkit.createInventory(null, 36, "§a" + p.getName() + " level beheer scherm.");
+		LevelSelector = Bukkit.createInventory(null, 45, "§a" + p.getName() + " level beheer scherm.");
 		int Slot = 10;
 		LevelSelector.setItem(Slot, GetItem("1")); 
 		Slot++;
@@ -45,8 +45,24 @@ public class LevelSelector {
 		LevelSelector.setItem(Slot, GetItem("13")); 
 		Slot++;
 		LevelSelector.setItem(Slot, GetItem("14")); 
-		Slot++;
+		Slot++; //Slot 9
+		Slot++; //slot 1
+		Slot++; //slot 2
 		LevelSelector.setItem(Slot, GetItem("15")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("16")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("17")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("18")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("19")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("20")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("21")); 
+		Slot++;
+		LevelSelector.setItem(Slot, GetItem("22")); 
 		
 	}
 	
